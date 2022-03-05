@@ -1,7 +1,7 @@
 ---
 layout: post
 title: esp32 flash
-published: true
+published: false
 date: 2022-03-05
 categories: [firmware]
 tags: [esp32]
