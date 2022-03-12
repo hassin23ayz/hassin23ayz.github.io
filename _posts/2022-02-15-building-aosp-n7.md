@@ -25,46 +25,39 @@ Here In this Post I will be sharing how I downloaded Android AOSP sources and bu
 
 * install some required packages
 
-{% include codeHeader.html %}
 ```bash
 ayx@ayx-HP:~$ sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip
 ```
 
-{% include codeHeader.html %}
 ```bash
 ayx@ayx-HP:~/$ sudo apt-get install ncurses-dev
 ```
 
 * install adb tool
 
-{% include codeHeader.html %}
 ```bash
 ayx@ayx-HP:~/$ sudo apt-get install android-tools-adb
 ```
 
 * Fix Udev permission error
 
-{% include codeHeader.html %}
 ```bash
 ayx@ayx-HP:~$ lsusb
 ```
 
 * check the vendor id left of the colon , e.g nexus 5 & Open this file
 
-{% include codeHeader.html %}
 ```bash
 ayx@ayx-HP:~$ sudo gedit /etc/udev/rules.d/51-android.rules
 ```
 
 * Put the following at the bottom of the file and save
 
-{% include codeHeader.html %}
 ```bash
 # Nexus 5 Google Inc
 SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"`
 ```
 
-{% include codeHeader.html %}
 ```bash
 ayx@ayx-HP:~$ sudo chmod a+r /etc/udev/rules.d/51-android.rules
 ayx@ayx-HP:~$ sudo service udev restart
@@ -77,7 +70,6 @@ ayx@ayx-HP:~$ fastboot -l devices`
 
 * install Java 7
 
-{% include codeHeader.html %}
 ```bash
 ayx@ayx-HP:~$sudo apt-get install -f
 ayx@ayx-HP:~$sudo add-apt-repository ppa:openjdk-r/ppa
@@ -87,7 +79,6 @@ ayx@ayx-HP:~$sudo apt-get install openjdk-7-jre
 
 * select java 7 for the followings
 
-{% include codeHeader.html %}
 ```bash
 ayx@ayx-HP:~$ sudo update-alternatives --config javac
 ayx@ayx-HP:~/$ sudo update-alternatives --config java
