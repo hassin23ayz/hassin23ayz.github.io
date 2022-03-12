@@ -36,20 +36,19 @@ ESP32-DevkitC is an AWS-qualified development board. In Addition to espressif’
 $ sudo apt-get install git wget libncurses-dev flex bison gperf python python-pip python-setuptools python-serial python-click python-cryptography python-future python-pyparsing python-pyelftools cmake ninja-build ccache
 ```
 
-** Esp-idf Download **
+**Esp-idf Download & install**
 
+```bash
 ~/$ mkdir esp && cd esp
-
 ~/esp$ git clone --recursive<https://github.com/espressif/esp-idf.git>
-
-
-**Install compiler, debugger**
-
 ~/esp/esp-idf$ ./install.sh
+```
 
 **Initialize environment**
 
+```bash
 ~/esp$ . /home/hassin/esp/esp-idf/export.sh
+```
 
 **Start with Example projects**
 
@@ -67,32 +66,37 @@ We will first run the basic hello world example**examples/get-started/hello_worl
 
 Let’s copy the example to the root path of the esp directory
 
+```bash
 ~/esp$ cp -r $IDF_PATH/examples/get-started/hello_world/ .
+```
 
 **insert esp32 over USB**
 
-hassin@hassin-HP:~/esp$ ls /dev/ | grep 'tty'
+check the mounted device For example in Ubuntu if there is no other USB module connected other than the ESP devkit then you will find it mounted at **/dev/ttyUSB0 .** Use the following commands to check
 
-ttyUSB0
+```bash
+~/$ ls /dev/ | grep 'tty'
 
+~/$ ls /dev/ttyUSB\*
+```
 
 **check python version**, it should be python2
 
+```bash
 hassin@hassin-HP:~$ python --version
 
 Python 2.7.15+
+```
 
 **Configure:**run the configuration utility
 
-ayx@ayx-ThinkPad:~/esp/hello_world$ idf.py menuconfig
+```bash
+~/esp/hello_world$ idf.py menuconfig
+```
 
 It will open up a linux kernel configuration like utility in the terminal
 
-Go To Serial Flasher Config options and change the Port number according to the one populated at your OS
-
-For example in Ubuntu if there is no other USB module connected other than the ESP devkit then you will find it mounted at**/dev/ttyUSB0 .**Use the following command to check
-
-:~/$ ls /dev/ttyUSB\*
+Go To Serial Flasher Config options and change the Port number according to the one populated at your OS (check Above)
 
 ![](https://lh4.googleusercontent.com/Ju7pwRGwuv_w0BJA0gskhDJv7EgJzK9B6tdWqW5rIrr7aOq2ND4f9ib6CP_dVzVlCit_0Inrd3yu7S-cr82X0HThM09PUMGAZNPztUeGm4xei0dR_p5xxPvN9-ICVQ_-1HnmLps4)
 
@@ -102,39 +106,69 @@ Save and exit
 
 Use idf tools to flash. These were automatically installed while ESP-IDF toolchain setup
 
+```bash
 ~/esp/hello_world$ idf.py build
-
 ~/esp/hello_world$ idf.py -p /dev/ttyUSB0 flash
-
 ~/esp/hello_world$ idf.py -p /dev/ttyUSB0 monitor
+```
 
-| I (269) heap_init: At 40089844 len 000167BC (89 KiB): IRAM   I (275) cpu_start: Pro cpu start user code   I (294) spi_flash: detected chip: generic   I (294) spi_flash: flash io: dio   W (294) spi_flash: Detected size(4096k) larger than the sizein the binary image header(2048k). Using the size in the binary image header.   I (305) cpu_start: Starting scheduler on PRO CPU.   I (0) cpu_start: Starting scheduler on APP CPU.   Hello world!   This is ESP32 chip with 2 CPU cores, WiFi/BT/BLE, silicon revision 1, 2MB external flash |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+The Following kind of output will be shown
+```text
+I (269) heap_init: At 40089844 len 000167BC (89 KiB): IRAM
+I (275) cpu_start: Pro cpu start user code
+I (294) spi_flash: detected chip: generic
+I (294) spi_flash: flash io: dio
+W (294) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (305) cpu_start: Starting scheduler on PRO CPU.
+I (0) cpu_start: Starting scheduler on APP CPU.
+Hello world!
+This is ESP32 chip with 2 CPU cores, WiFi/BT/BLE, silicon revision 1, 2MB external flash
+```
 
 \[note: The option flash automatically builds and flashes the project]
 
 UseCTRL+] to exit
 
-
 Here a (W)arning is shown related to flash size, Actually the board has 4MB flash but the configuration file had 2MB size settings So to Solve this we reopen configuration using the menuconfig
 
-ayx@ayx-ThinkPad:~/esp/hello_world$ idf.py menuconfig
+```bash
+~/esp/hello_world$ idf.py menuconfig
+```
 
 ![](https://lh6.googleusercontent.com/NmOilxqaldqAIkaiVGR-n-4Iwe67UoHMp5uHT4Ku8iycdoYcADW_UHXueTq_1UsOiVBl38QZLbBehZ1NDCsvbtmCK312f0hDfahFZb0zSrkSbjiEHDpe3zZF7Pffsg7fDSA4U615)
 
 After setting the flash size as 4MB and rebuild and flashing the warning from the debug log disappeared
 
-:~/esp/hello_world$ idf.py -p /dev/ttyUSB0 flash monitor
+```bash
+$ idf.py -p /dev/ttyUSB0 flash monitor
+```
 
-Next up we will test the blink example**examples/get-started/blink**
+Next up we will test the blink example **examples/get-started/blink**
 
 In my Board GPIO2 is connected to the onboard LED, so I had to modify the example like the following code snippet.
 
-| //uint8_t gpio\[] = {25, 26, 27, 2, 0, 4, 16, 17, 5, 18, 23, 19, 22, 21};   uint8_t gpio\[] = {2};   uint8_t i = 0;   while(1)   {   gpio_pad_select_gpio(gpio\[i]);   gpio_set_direction(gpio\[i], GPIO_MODE_OUTPUT);   printf("Turning off the LED %d\\n", gpio\[i]);   gpio_set_level(gpio\[i],0);   vTaskDelay(1000 / portTICK_PERIOD_MS);   printf("Turning on the LED %d\\n", gpio\[i]);   gpio_set_level(gpio\[i],1);   vTaskDelay(1000 / portTICK_PERIOD_MS);   i++;   if(i ==sizeof(gpio)/sizeof(uint8_t)){i =0;}   } |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+```c
+uint8_t gpio[] = {2};
+uint8_t i = 0;
 
+void app_main(void)
+{
+    gpio_pad_select_gpio(gpio[i]);
+    gpio_set_direction(gpio[i], GPIO_MODE_OUTPUT);
+	printf("Turning off the LED %d\n", gpio[i]);
+    
+    gpio_set_level(gpio[i], 0);
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+	
+	printf("Turning on the LED %d\n", gpio[i]);
+    gpio_set_level(gpio[i], 1);
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    
+    i++;
+    if(i == sizeof(gpio)/sizeof(uint8_t)){i = 0;}
+}
+```
 Note You can also use the project configuration menu to choose which GPIO to blink
-
 
 Here vTaskDelay() : is a freeRtos delay function
 
