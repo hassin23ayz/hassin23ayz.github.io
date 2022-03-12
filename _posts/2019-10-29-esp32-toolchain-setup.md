@@ -40,7 +40,7 @@ $ sudo apt-get install git wget libncurses-dev flex bison gperf python python-pi
 
 ```bash
 ~/$ mkdir esp && cd esp
-~/esp$ git clone --recursive<https://github.com/espressif/esp-idf.git>
+~/esp$ git clone --recursive https://github.com/espressif/esp-idf.git
 ~/esp/esp-idf$ ./install.sh
 ```
 
@@ -72,12 +72,12 @@ Let’s copy the example to the root path of the esp directory
 
 **insert esp32 over USB**
 
-check the mounted device For example in Ubuntu if there is no other USB module connected other than the ESP devkit then you will find it mounted at **/dev/ttyUSB0 .** Use the following commands to check
+check the mounted device For example in Ubuntu if there is no other USB module connected other than the ESP devkit then you will find it mounted at **/dev/ttyUSB0 .** Use one of the following commands to check
 
 ```bash
 ~/$ ls /dev/ | grep 'tty'
 
-~/$ ls /dev/ttyUSB\*
+~/$ ls /dev/ttyUSB/*
 ```
 
 **check python version**, it should be python2

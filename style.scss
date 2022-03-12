@@ -357,5 +357,19 @@ footer {
   }
 }
 
+th {
+  text-align: left;
+}
+
+td {
+  height: 20px;
+  vertical-align: bottom;
+}
+
+table, th, td {
+  border: 2px solid;
+  padding: 5px;
+}
+
 @import "highlights";
 @import "svg-icons";
