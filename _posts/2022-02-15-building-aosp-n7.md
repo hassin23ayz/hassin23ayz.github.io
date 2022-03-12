@@ -11,7 +11,7 @@ Here In this Post I will be sharing how I downloaded Android AOSP sources and bu
 
 # Device Information
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6q33QaKzbik3Y3ySfOiPvRysxOU5wffs0A&usqp=CAU">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6q33QaKzbik3Y3ySfOiPvRysxOU5wffs0A&usqp=CAU" >
 
 
 * The Tablet device used here is the Nexus 7 (2012)
