@@ -372,11 +372,11 @@ table, th, td {
 }
 
 .featured-image {
-  margin-bottom: 30px;
+  margin-bottom: 1px;
 
   img {
     width: 50%;
-    max-height: 100px;
+    max-height: 50px;
     object-fit: cover;
   }
 }
