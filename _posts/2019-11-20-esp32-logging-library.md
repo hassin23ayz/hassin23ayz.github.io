@@ -6,6 +6,7 @@ date: 2019-11-20
 categories: [esp32]
 tags: [firmware]
 comments: true
+featured_img: "https://lh6.googleusercontent.com/PHPhdFsrfDD43mqFtvt9L7INpXMv1hqq8UJz7peqP_MU7PJkHXNTNNLH5S37ahWghSNUGJJvIxfM5NT-osQ5kykpEM-rManmdPdLfj_v5lrrxaRMRMWkKKpC1xMS7YvPd0EgUveQ"
 ---
 
 ESP32 has a very convenient Logging Library
