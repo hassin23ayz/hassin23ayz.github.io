@@ -2,7 +2,10 @@
 title: Projects
 permalink: /projects/
 layout: page
-sitemap: false
+sitemap:
+  lastmod: 2022-04-18
+  priority: 0.5
+  changefreq: 'monthly'
 ---
 
 ## _Android based wireless Oscilloscope_

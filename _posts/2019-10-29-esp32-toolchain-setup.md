@@ -7,6 +7,10 @@ categories: [esp32]
 tags: [firmware]
 comments: true
 featured_img: "https://lh4.googleusercontent.com/Ju7pwRGwuv_w0BJA0gskhDJv7EgJzK9B6tdWqW5rIrr7aOq2ND4f9ib6CP_dVzVlCit_0Inrd3yu7S-cr82X0HThM09PUMGAZNPztUeGm4xei0dR_p5xxPvN9-ICVQ_-1HnmLps4"
+sitemap:
+  lastmod: 2022-04-18
+  priority: 0.5
+  changefreq: 'monthly'
 ---
 
 In this Post we will set up the Native Compiler and toolchains in our Linux Host machine to program theESP32-DevKitC V4board . After the Setup we will run 2 example codes

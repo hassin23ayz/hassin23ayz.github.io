@@ -2,6 +2,10 @@
 layout: page
 title: Skills
 permalink: /skills/
+sitemap:
+  lastmod: 2022-04-18
+  priority: 0.5
+  changefreq: 'monthly'
 ---
 
 I have the following skills to solve different technical problems 

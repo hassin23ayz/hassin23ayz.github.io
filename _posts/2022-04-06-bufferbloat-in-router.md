@@ -6,6 +6,10 @@ date: 2022-04-06
 categories: [web]
 tags: [networking]
 featured_img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/ResidentialGatewayCloseup.jpg/320px-ResidentialGatewayCloseup.jpg"
+sitemap:
+  lastmod: 2022-04-18
+  priority: 0.5
+  changefreq: 'monthly'
 ---
 
 ### _Better Speed makes better user engagement_

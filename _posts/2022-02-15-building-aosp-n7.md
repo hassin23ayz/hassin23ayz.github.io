@@ -6,6 +6,10 @@ date: 2019-09-10
 categories: [android]
 tags: [software]
 featured_img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6q33QaKzbik3Y3ySfOiPvRysxOU5wffs0A&usqp=CAU"
+sitemap:
+  lastmod: 2022-04-18
+  priority: 0.5
+  changefreq: 'monthly'
 ---
 
 Here In this Post I will be sharing how I downloaded Android AOSP sources and built AOSP image for Nexus 7 [2012] device. You can follow this approach to build AOSP images for your devices for example Nexus 5 . So Let’s Start

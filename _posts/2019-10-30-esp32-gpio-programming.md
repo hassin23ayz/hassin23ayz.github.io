@@ -7,6 +7,10 @@ categories: [esp32]
 tags: [firmware]
 comments: true
 featured_img: "https://lh4.googleusercontent.com/K7GSRNtwExLCPfpUVfsMQe0P8_2TghhrfLZ6yaIaZeHVZUJxCQAJ5IMi9aeGtih8zsWSe-DEs9ORlY0NEGZkhsMf6Yq9dZf7rs8Vh-zj6IZ7pqRZV0vefYLmhb7bgBP8UMaiFuTk"
+sitemap:
+  lastmod: 2022-04-18
+  priority: 0.5
+  changefreq: 'monthly'
 ---
 In this blog post we will learn about esp32 GPIO programming we will use the following example as reference
 

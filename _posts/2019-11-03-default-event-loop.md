@@ -7,6 +7,10 @@ categories: [esp32]
 tags: [firmware]
 comments: true
 featured_img: "https://lh5.googleusercontent.com/r2VZHv66DFxY6YH2TGLOocmtjaVwD8J7FvUxEpfLurxKExmoNBhMHr4MgcyKCK8UmAmcqkpwjXMzj67G8hwZbjrKDkYZvo4bllsBP3YrULr-zuZIqPoXUqKZAmZlBLVdw9Hv7spq"
+sitemap:
+  lastmod: 2022-04-18
+  priority: 0.5
+  changefreq: 'monthly'
 ---
 
 ESP-IDF has an **Event Loop** Library . This Library allows you to create an Event Loop and declare Events to which other components of your code can register handlers. Handler is a function which gets executed when a particular event occurs.

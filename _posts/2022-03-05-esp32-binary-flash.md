@@ -5,6 +5,10 @@ published: false
 date: 2022-03-05
 categories: [firmware]
 tags: [esp32]
+sitemap:
+  lastmod: 2022-04-18
+  priority: 0.5
+  changefreq: 'monthly'
 ---
 
 1. Download**Flash Download Tools**
